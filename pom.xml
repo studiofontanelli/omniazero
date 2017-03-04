@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>it.studiofontanelli</groupId>
+	<groupId>it.studiofontanelli</groupId> 
 	<artifactId>omniazero</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>omniazero</name>
-	<description>Progetto per la gestione un pò di tutto</description>
+	<description>Progetto per la gestione un pò di tutto GITHIB</description>
 	<!-- modules -->
 	<modules>   
 
