@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -105,7 +106,10 @@ public class JasperReportServiceImpl extends CommonServiceImpl implements Report
 			if(jasperReport == null)
 				throw new ApplicationException("report non compilato.");
 			
-			JasperPrint jasperPrint =  JasperFillManager.fillReport(jasperReport,  new HashMap<>(), new JREmptyDataSource());
+			
+			Map map = new HashMap<>();
+			
+			JasperPrint jasperPrint =  JasperFillManager.fillReport(jasperReport, map, new JREmptyDataSource());
 			byte [] bytes =  JasperExportManager.exportReportToPdf(jasperPrint);
 			
 			report.setCodice(codice);
