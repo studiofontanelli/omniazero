@@ -51,6 +51,38 @@
 	<!-- SCADEWEB EAR PROFILES -->
 	<profiles>
 		<!-- caratterizzazione file di properties da copiare per i vari ambienti -->
+		
+		<profile>
+			<id>openshift</id>
+			<properties>
+				<spring.property.file.name.source>openshift.properties</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${maven.antrun.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>copy</id>
+								<phase>install</phase>
+								<configuration>
+									<tasks>
+										<copy file="${project.build.directory}/${ear.name}.ear"
+											tofile="${JBOSS_HOME}/standalone/deployments/${ear.name}.ear" />
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+		
 		<profile>
 			<id>macfonta</id>
 			<properties>
