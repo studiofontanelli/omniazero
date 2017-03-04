@@ -62,6 +62,7 @@
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 						<version>${maven.antrun.plugin.version}</version>
+						<!-- 
 						<executions>
 							<execution>
 								<id>copy</id>
@@ -69,7 +70,7 @@
 								<configuration>
 									<tasks>
 										<copy file="${project.build.directory}/${ear.name}.ear"
-											tofile="${JBOSS_HOME}/standalone/deployments/${ear.name}.ear" />
+											tofile="${jboss.home}/standalone/deployments/${ear.name}.ear" />
 									</tasks>
 								</configuration>
 								<goals>
@@ -77,6 +78,11 @@
 								</goals>
 							</execution>
 						</executions>
+						 -->
+						 <configuration>
+                          	<outputDirectory>${jboss.home}/standalone/deployments</outputDirectory>
+                            
+                        </configuration>
 					</plugin>
 				</plugins>
 			</build>
