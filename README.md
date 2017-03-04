@@ -1,4 +1,16 @@
-ciao belli
+Your application 'omniazero' is now available.
+
+  URL:        http://omniazero-studiofontanelli.rhcloud.com/
+  SSH to:     58baef1a0c1e6657d300008a@omniazero-studiofontanelli.rhcloud.com
+  Git remote: ssh://58baef1a0c1e6657d300008a@omniazero-studiofontanelli.rhcloud.com/~/git/omniazero.git/
+
+Run 'rhc show-app omniazero' for more details about your app.
+
+
+
+
+
+
 
 
 Your application 'omniazero' is now available.
