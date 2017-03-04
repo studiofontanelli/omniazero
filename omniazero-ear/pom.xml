@@ -1,0 +1,207 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.studiofontanelli</groupId>
+		<artifactId>omniazero</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>omniazero-ear</artifactId>
+	<packaging>ear</packaging>
+	
+	
+	<!-- OMNIAZERO EAR MODULE DEPENDENCIES -->
+	<dependencies>
+	
+		<!-- OMNIAZERO MODULES -->
+		<dependency>
+			<groupId>it.studiofontanelli</groupId>
+			<artifactId>omniazero-web</artifactId>
+			<version>1.0.0</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	
+	<!-- SCADEWEB EAR MODULE BUILD CONFIGURATION -->
+	<build>
+		<plugins>
+			<!-- creazione ear -->
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>${maven.ear.plugin.version}</version>
+				<configuration>
+
+					<finalName>${ear.name}</finalName>
+					<defaultLibBundleDir>/lib</defaultLibBundleDir>
+
+					<modules>
+						<webModule>
+							<groupId>it.studiofontanelli</groupId>
+							<artifactId>omniazero-web</artifactId>
+							<contextRoot>/${context.name}</contextRoot>
+						</webModule>
+					</modules>
+
+				</configuration>
+			</plugin>
+	
+		</plugins>
+	</build>
+	
+	<!-- SCADEWEB EAR PROFILES -->
+	<profiles>
+		<!-- caratterizzazione file di properties da copiare per i vari ambienti -->
+		<profile>
+			<id>macfonta</id>
+			<properties>
+				<spring.property.file.name.source>macfonta.properties</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>${maven.antrun.plugin.version}</version>
+						<executions>
+							<execution>
+								<id>copy</id>
+								<phase>install</phase>
+								<configuration>
+									<tasks>
+										<copy file="${project.build.directory}/${ear.name}.ear"
+											tofile="${JBOSS_HOME}/standalone/deployments/${ear.name}.ear" />
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+		
+		<profile>
+			<id>dev-rp-01</id>
+			<properties>
+				<spring.property.file.name.source>dev-rp-01.properties</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/descriptor.xml</descriptor>
+							</descriptors>
+							<finalName>scadeweb-${ear.version}</finalName>
+							<outputDirectory>../dist/dev-rp-01/</outputDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>tst-rp-01</id>
+			<properties>
+				<spring.property.file.name.source>tst-rp-01.properties</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/descriptor.xml</descriptor>
+							</descriptors>
+							<finalName>scadeweb-${ear.version}</finalName>
+							<outputDirectory>../dist/tst-rp-01/</outputDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>coll-rp-01</id>
+			<properties>
+				<spring.property.file.name.source>coll-rp-01.properties</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/descriptor.xml</descriptor>
+							</descriptors>
+							<finalName>scadeweb-${ear.version}</finalName>
+							<outputDirectory>../dist/coll-rp-01/</outputDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>prod-rp-01</id>
+			<properties>
+				<spring.property.file.name.source>prod-rp-01</spring.property.file.name.source>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+								<descriptor>src/assembly/descriptor.xml</descriptor>
+							</descriptors>
+
+							<finalName>scadeweb-${ear.version}</finalName>
+							<outputDirectory>../dist/prod-rp-01/</outputDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+</project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	
+       
+	
+	<definition name="bootstrap" template="/WEB-INF/layouts/bootstrapTemplate.jsp">
+		<put-attribute name="navbar"        value="/WEB-INF/template/_navbar.jsp" />
+		<put-attribute name="header"        value="/WEB-INF/template/_header.jsp" />
+		<put-attribute name="menu"          value="/WEB-INF/template/_menu.jsp" />
+		<put-attribute name="footer"        value="/WEB-INF/template/_footer.jsp" />
+		<put-attribute name="errorMessage"  value="/WEB-INF/template/_error.jsp" />
+	</definition>
+
+	<definition name="angular" template="/WEB-INF/layouts/bootstrapTemplate.jsp">
+		<put-attribute name="navbar"        value="/WEB-INF/template/_navbar.jsp" />
+		<put-attribute name="header"        value="/WEB-INF/template/_header.jsp" />
+		<put-attribute name="menu"          value="/WEB-INF/template/_menu.jsp" />
+		<put-attribute name="footer"        value="/WEB-INF/template/_footer.jsp" />
+		<put-attribute name="errorMessage"  value="/WEB-INF/template/_error.jsp" />
+	</definition>
+	
+	<definition name="testResource" extends="bootstrap">
+		<put-attribute name="body"        value="/WEB-INF/views/test/testResource.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/template/emptyJavascript.jsp" />
+	</definition>
+	<definition name="testAutocomplete" extends="bootstrap">
+		<put-attribute name="body"        value="/WEB-INF/views/test/testAutocomplete.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/js//testAutocompleteJavascript.jsp" />
+	</definition>
+	
+
+	<definition name="error" extends="bootstrap">
+		<put-attribute name="body"        value="/WEB-INF/views/error/error.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/template/emptyJavascript.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="manageCliente" extends="bootstrap">
+		<put-attribute name="body"        value="/WEB-INF/views/manageCliente.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/js/manageClienteJavascript.jsp" />
+	</definition>
+	
+	<definition name="listCliente" extends="bootstrap">
+		<put-attribute name="body"        value="/WEB-INF/views/listCliente.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/template/emptyJavascript.jsp" />
+	</definition>
+	
+	<!-- angular -->
+	
+	<definition name="angular.home" extends="angular">
+		<put-attribute name="body"        value="/WEB-INF/views/angular/home.jsp" />
+		<put-attribute name="javascript"  value="/WEB-INF/js/angular/angularJavascript.jsp" />
+	</definition>
+
+
+</tiles-definitions>

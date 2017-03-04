@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://www.springframework.org/schema/aop 
+	                   http://www.springframework.org/schema/aop/spring-aop-3.1.xsd"
+                        >
+
+
+	
+	<!-- CONFIGURAZIONE EMAIL 
+	<bean id="mailSession" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:jboss/mail/ScadewebMail" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="session" ref="mailSession" />
+	</bean>
+	
+	-->
+	
+	 
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${smtp.host}" />	
+	</bean>
+	 
+	 <!-- 
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mailfarm.csi.it" />
+		
+	</bean>
+	 -->
+	
+	
+	
+		<bean id="demoMailMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
+	
+			<property name="from" value="andrea@abinetworks.biz" />
+			<property name="to" value="studiofontanelli@gmail.com" />
+			<property name="subject" value="Testing Subject" />
+			<property name="text">
+				<value>
+			<![CDATA[
+	Dear {UTENTE},
+	This is a demo mail
+	{SALUTI}
+			]]>
+				</value>
+			</property>
+		</bean>
+	
+	
+	<bean id="assegnazioneIniziativaMailMessage" class="org.springframework.mail.SimpleMailMessage" scope="prototype">
+
+		<property name="from" value="info@csi.it" />
+		
+		<property name="subject" value="Assegnazione iniziativa" />
+		<property name="text">
+			<value>
+		<![CDATA[
+		
+		Le è stata assegnata l’iniziativa {TITOLO_INIZIATIVA}, 
+		che deve essere conclusa entro il {DATA_FINE_INIZIATIVA}.
+
+		]]>
+			</value>
+		</property>
+	</bean>
+	
+  	
+</beans>

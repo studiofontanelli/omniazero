@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+
+	<table-filter match-name="_abi_conf_parametro" />
+	<table-filter match-name="_abi_conf_token" />
+	<table-filter match-name="_abi_conf_template" />
+
+	<table-filter match-name="_abi_istat_comune" />
+	<table-filter match-name="_abi_istat_provincia" />
+	<table-filter match-name="_abi_istat_regione" />
+
+
+
+	<table-filter match-name="_abi_lk_users_class" />
+	<table-filter match-name="_abi_lk_users_status" />
+	<table-filter match-name="_abi_lk_contacts_type" />
+	<table-filter match-name="_abi_lk_contacts_status" />
+
+	<table-filter match-name="_abi_main_account" />
+	<table-filter match-name="_abi_main_users" />
+	<table-filter match-name="_abi_main_users_session" />
+	<!-- 
+	<table-filter match-name="_abi_main_contacts">
+		<primary-key>
+			<generator class="sequence"></generator>
+			<key-column name="id"/>
+		</primary-key>
+	</table-filter>
+	 -->
+
+</hibernate-reverse-engineering>

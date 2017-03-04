@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+	<datasource jta="true" jndi-name="java:jboss/jdbc/omniazeroDS" pool-name="omniazeroDS" enabled="true" use-ccm="true">
+
+		<connection-url>jdbc:postgresql://localhost:5432/omniazero</connection-url>
+		<driver-class>org.postgresql.Driver</driver-class>
+		<driver>postgresql</driver>
+		<pool>
+      		<min-pool-size>2</min-pool-size>
+      		<max-pool-size>20</max-pool-size>
+    	</pool>
+		<security>
+			<user-name>jabi</user-name>
+			<password>jabiuser</password>
+
+		</security>
+		<validation>
+			<validate-on-match>true</validate-on-match>
+			<background-validation>false</background-validation>
+		</validation>
+		<statement>
+			<track-statements>true</track-statements>
+			<share-prepared-statements>false</share-prepared-statements>
+		</statement>
+	</datasource>
+</datasources>
+
+
+
+

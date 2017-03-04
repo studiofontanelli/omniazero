@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+	
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		
+		<!-- hibernate cache properties -->
+		
+		<property name="hibernate.cache.use_query_cache">false</property>
+		<property name="hibernate.cache.use_second_level_cache">false</property>
+		<!-- 
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		 -->
+		
+		
+		<!-- JBoss Transaction Manager 
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+		<property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+		-->
+
+
+		<!-- SQL -->
+		<!-- -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<!-- Mapping resource 
+		<mapping resource="it/csi/scade/scadeweb/integration/hbm/query.hbm.xml" />
+		-->
+		
+		<!-- Mapping Entità -->
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiConfParametro" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiConfToken" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiConfTemplate" />
+		
+		
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiIstatComune" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiIstatProvincia" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiIstatRegione" />
+		
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiLkContactsStatus" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiLkContactsType" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiLkUsersClass" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiLkUsersStatus" />
+		
+		
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiMainAccount" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiMainContacts" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiMainUsers" />
+		<mapping class="it.studiofontanelli.omniazero.integration.dto.AbiMainUsersSession" />
+
+
+	</session-factory>
+</hibernate-configuration>
+
+
