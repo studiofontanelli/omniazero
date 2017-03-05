@@ -53,7 +53,7 @@
 		<!-- caratterizzazione file di properties da copiare per i vari ambienti -->
 		
 		<profile>
-			<id>openshift</id>
+			<id>openshift1</id>
 			<properties>
 				<spring.property.file.name.source>openshift.properties</spring.property.file.name.source>
 			</properties>
